@@ -64,13 +64,13 @@ elif average_option == "Monatlich":
         .reset_index())
 
 # time series viz
-st.header("Zeitliche Analyse")
+st.header(f"Relative Fallzahlen im Zeitverlauf ({average_option})")
 fig = px.line(
     filtered_data,
     x="date",
     y="relative_cases",
     color="age_group",  # Use age_group as the legend
-    title=f"Relative Fallzahlen im Zeitverlauf ({average_option})",
+    title="",
     labels={
         "date": "Datum",
         "relative_cases": "Relative Fallzahlen",
@@ -86,7 +86,7 @@ fig_map = px.scatter_mapbox(
     color_discrete_sequence=["red"],
     size=[7] * len(standorte),
     hover_name="ed_name",
-    title="Standorte der Notaufnahmen",
+    title="",
     mapbox_style="open-street-map",
     labels={"ed_type": "Notaufnahmetyp"})
 st.plotly_chart(fig_map)
